@@ -14,6 +14,21 @@ class UE_DSW_API ADoor : public AActor
 	
 public:
 	ADoor();
+
+	/** Delay between color changes */
+	UPROPERTY(EditInstanceOnly, Category = "Color", meta = (ToolTip = "Delay between color changes"))
+	float DelayBetweenColors = 0.5f;
+
+	/** Number of cubes to illuminate */
+	UPROPERTY(EditInstanceOnly, Category = "Color", meta = (ToolTip = "Number of cubes to illuminate"))
+	int IlluminationCount = 0;
+
+	/** Available colors for cubes */
+	UPROPERTY(EditInstanceOnly, Category = "Color", meta = (ToolTip = "Available colors for cubes"))
+	TArray<FLinearColor> AvailableColors;
+	
+	void StartCubeColorizeSequence();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -23,7 +38,15 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	int CurrentIlluminationIndex = 0;
+
+	int CubeIndex = 0;
+
+	TMap<FLinearColor, UColorHandler*> ColorHandlerMap;
+	
 	TArray<UColorHandler*> ColorHandlers;
 
+	FTimerHandle TimerHandle;
 	
+	void ChangeCubeColor();
 };
