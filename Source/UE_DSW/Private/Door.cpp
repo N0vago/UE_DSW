@@ -13,6 +13,8 @@ ADoor::ADoor()
 void ADoor::StartCubeColorizeSequence()
 {
 	CurrentIlluminationIndex = 0;
+
+	ColorHandlerMap.Empty();
 	
 	// Запускаем таймер для изменения цвета кубов
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &ADoor::ChangeCubeColor, DelayBetweenColors, true);

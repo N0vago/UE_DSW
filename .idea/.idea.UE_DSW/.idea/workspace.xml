@@ -12,16 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="237440ec-bc94-4717-b999-93b8b89ad94a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/GameContent/Blueprint/BP_Door.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TemplateContent/FirstPerson/Maps/FirstPersonMap/B/BY/SAJL39670IB1H7BEGLMHRR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UE_DSW.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UE_DSW/Private/CubeActor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UE_DSW/Public/CubeActor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/GameContent/Blueprint/BP_ColorCube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameContent/Blueprint/BP_ColorCube.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TemplateContent/FirstPerson/Maps/FirstPersonMap/B/BY/SAJL39670IB1H7BEGLMHRR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TemplateContent/FirstPerson/Maps/FirstPersonMap/B/BY/SAJL39670IB1H7BEGLMHRR.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Private/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Private/Door.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Public/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Public/Door.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UE_DSW.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/UE_DSW.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +29,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/UE_DSW/Private/CubeActor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UE_DSW/Public/CubeActor.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2rr3kaCFVDSsVHsmcuk3Fj80qpN" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -58,7 +60,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
+    "settings.editor.selected.configurable": "Settings.JavaScript.Linters.JSHint",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -504,7 +506,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1737303513529</updated>
-      <workItem from="1737303515251" duration="9784000" />
+      <workItem from="1737303515251" duration="11916000" />
+      <workItem from="1737361897267" duration="4935000" />
     </task>
     <servers />
   </component>
