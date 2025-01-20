@@ -40,7 +40,7 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::ChangeCubeColor()
 {
-	ColorHandlers[CubeIndex]->SetColor(FLinearColor::White);
+	ColorHandlers[CubeIndex]->SetBaseColor()();
 	
 	if (CurrentIlluminationIndex >= IlluminationCount)
 	{
@@ -54,7 +54,7 @@ void ADoor::ChangeCubeColor()
 	
 	ColorHandlers[CubeIndex]->SetColor(color);
 
-	ColorHandlerMap.Add(color, ColorHandlers[CurrentIlluminationIndex]);
+	ColorHandlerMap.Add(CurrentIlluminationIndex + 1, ColorHandlers[CurrentIlluminationIndex]);
 
 	CurrentIlluminationIndex++;
 }

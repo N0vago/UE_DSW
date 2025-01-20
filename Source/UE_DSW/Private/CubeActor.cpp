@@ -3,6 +3,8 @@
 
 #include "CubeActor.h"
 
+#include "UE_DSW/Projectile.h"
+
 // Sets default values
 ACubeActor::ACubeActor()
 {
@@ -31,8 +33,10 @@ void ACubeActor::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiv
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
 	//check if Other of type UE_DSWProjectile
+	if(Other && Cast<AProjectile>(Other))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Projectile hit!"));
+	}
 	
-	
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Hit!"));
 }
 

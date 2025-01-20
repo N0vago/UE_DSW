@@ -12,14 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="237440ec-bc94-4717-b999-93b8b89ad94a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/UE_DSW/Private/CubeActor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UE_DSW/Public/CubeActor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameContent/Blueprint/BP_ColorCube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameContent/Blueprint/BP_ColorCube.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TemplateContent/FirstPerson/Maps/FirstPersonMap/B/BY/SAJL39670IB1H7BEGLMHRR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TemplateContent/FirstPerson/Maps/FirstPersonMap/B/BY/SAJL39670IB1H7BEGLMHRR.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Private/ColorHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Private/ColorHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Private/CubeActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Private/CubeActor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Private/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Private/Door.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UE_DSW.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/UE_DSW.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Public/ColorHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Public/ColorHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/Public/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Public/Door.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/PlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/MainGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/MainGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWPickUpComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/PickUpComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWPickUpComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/PickUpComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Projectile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWProjectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/Projectile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWWeaponComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/WeaponComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UE_DSW/UE_DSWWeaponComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UE_DSW/WeaponComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -507,7 +516,7 @@
       <option name="presentableId" value="Default" />
       <updated>1737303513529</updated>
       <workItem from="1737303515251" duration="11916000" />
-      <workItem from="1737361897267" duration="4935000" />
+      <workItem from="1737361897267" duration="7673000" />
     </task>
     <servers />
   </component>

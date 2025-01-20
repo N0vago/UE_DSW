@@ -38,14 +38,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	UPROPERTY()
+	TMap<int, UColorHandler*> ColorHandlerMap;
+
+	UPROPERTY()
+	TArray<UColorHandler*> ColorHandlers;
+	
 	int CurrentIlluminationIndex = 0;
 
 	int CubeIndex = 0;
-
-	TMap<FLinearColor, UColorHandler*> ColorHandlerMap;
 	
-	TArray<UColorHandler*> ColorHandlers;
-
 	FTimerHandle TimerHandle;
 	
 	void ChangeCubeColor();

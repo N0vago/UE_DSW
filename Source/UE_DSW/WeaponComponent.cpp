@@ -1,9 +1,9 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 
-#include "UE_DSWWeaponComponent.h"
-#include "UE_DSWCharacter.h"
-#include "UE_DSWProjectile.h"
+#include "WeaponComponent.h"
+#include "PlayerCharacter.h"
+#include "Projectile.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
@@ -14,14 +14,14 @@
 #include "Engine/World.h"
 
 // Sets default values for this component's properties
-UUE_DSWWeaponComponent::UUE_DSWWeaponComponent()
+UWeaponComponent::UWeaponComponent()
 {
 	// Default offset from the character location for projectiles to spawn
 	MuzzleOffset = FVector(100.0f, 0.0f, 10.0f);
 }
 
 
-void UUE_DSWWeaponComponent::Fire()
+void UWeaponComponent::Fire()
 {
 	if (Character == nullptr || Character->GetController() == nullptr)
 	{
@@ -44,7 +44,7 @@ void UUE_DSWWeaponComponent::Fire()
 			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 	
 			// Spawn the projectile at the muzzle
-			World->SpawnActor<AUE_DSWProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			World->SpawnActor<AProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 		}
 	}
 	
@@ -66,12 +66,12 @@ void UUE_DSWWeaponComponent::Fire()
 	}
 }
 
-bool UUE_DSWWeaponComponent::AttachWeapon(AUE_DSWCharacter* TargetCharacter)
+bool UWeaponComponent::AttachWeapon(APlayerCharacter* TargetCharacter)
 {
 	Character = TargetCharacter;
 
 	// Check that the character is valid, and has no weapon component yet
-	if (Character == nullptr || Character->GetInstanceComponents().FindItemByClass<UUE_DSWWeaponComponent>())
+	if (Character == nullptr || Character->GetInstanceComponents().FindItemByClass<UWeaponComponent>())
 	{
 		return false;
 	}
@@ -92,14 +92,14 @@ bool UUE_DSWWeaponComponent::AttachWeapon(AUE_DSWCharacter* TargetCharacter)
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 		{
 			// Fire
-			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &UUE_DSWWeaponComponent::Fire);
+			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &UWeaponComponent::Fire);
 		}
 	}
 
 	return true;
 }
 
-void UUE_DSWWeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
+void UWeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	// ensure we have a character owner
 	if (Character != nullptr)

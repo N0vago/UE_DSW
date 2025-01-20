@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
-#include "UE_DSWCharacter.generated.h"
+#include "PlayerCharacter.generated.h"
 
 class UInputComponent;
 class USkeletalMeshComponent;
@@ -17,7 +17,7 @@ struct FInputActionValue;
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 UCLASS(config=Game)
-class AUE_DSWCharacter : public ACharacter
+class APlayerCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -46,7 +46,7 @@ class AUE_DSWCharacter : public ACharacter
 	class UInputAction* LookAction;
 	
 public:
-	AUE_DSWCharacter();
+	APlayerCharacter();
 
 protected:
 	/** Called for movement input */

@@ -1,10 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "UE_DSWGameMode.h"
-#include "UE_DSWCharacter.h"
+#include "MainGameMode.h"
+#include "PlayerCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-AUE_DSWGameMode::AUE_DSWGameMode()
+AMainGameMode::AMainGameMode()
 	: Super()
 {
 	// set default pawn class to our Blueprinted character

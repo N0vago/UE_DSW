@@ -4,19 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "Components/SkeletalMeshComponent.h"
-#include "UE_DSWWeaponComponent.generated.h"
+#include "WeaponComponent.generated.h"
 
-class AUE_DSWCharacter;
+class APlayerCharacter;
 
 UCLASS(Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class UE_DSW_API UUE_DSWWeaponComponent : public USkeletalMeshComponent
+class UE_DSW_API UWeaponComponent : public USkeletalMeshComponent
 {
 	GENERATED_BODY()
 
 public:
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category=Projectile)
-	TSubclassOf<class AUE_DSWProjectile> ProjectileClass;
+	TSubclassOf<class AProjectile> ProjectileClass;
 
 	/** Sound to play each time we fire */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
@@ -39,11 +39,11 @@ public:
 	class UInputAction* FireAction;
 
 	/** Sets default values for this component's properties */
-	UUE_DSWWeaponComponent();
+	UWeaponComponent();
 
 	/** Attaches the actor to a FirstPersonCharacter */
 	UFUNCTION(BlueprintCallable, Category="Weapon")
-	bool AttachWeapon(AUE_DSWCharacter* TargetCharacter);
+	bool AttachWeapon(APlayerCharacter* TargetCharacter);
 
 	/** Make the weapon Fire a Projectile */
 	UFUNCTION(BlueprintCallable, Category="Weapon")
@@ -56,5 +56,5 @@ protected:
 
 private:
 	/** The Character holding this weapon*/
-	AUE_DSWCharacter* Character;
+	APlayerCharacter* Character;
 };

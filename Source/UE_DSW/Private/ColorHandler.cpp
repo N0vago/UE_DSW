@@ -29,8 +29,32 @@ void UColorHandler::SetColor(const FLinearColor& Color)
 		MeshComponent->SetMaterial(0, DynMaterial);
 		
 		DynMaterial->SetVectorParameterValue("BaseColor", Color);
+
+		HiddenColor = Color;
 	}
 
+}
+
+void UColorHandler::SetBaseColor()
+{
+	if (!MeshComponent)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UColorHandler: MeshComponent is null!"));
+		return;
+	}
+	
+	UMaterialInterface* BaseMaterial = MeshComponent->GetMaterial(0);
+	if (BaseMaterial)
+	{
+		if(DynMaterial == nullptr)
+		{
+			DynMaterial = UMaterialInstanceDynamic::Create(BaseMaterial, this);
+		}
+		
+		MeshComponent->SetMaterial(0, DynMaterial);
+		
+		DynMaterial->SetVectorParameterValue("BaseColor", BaseColor);
+	}
 }
 
 void UColorHandler::BeginPlay()

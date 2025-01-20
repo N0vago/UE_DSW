@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "UE_DSWCharacter.h"
-#include "UE_DSWProjectile.h"
+#include "PlayerCharacter.h"
+#include "Projectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -16,7 +16,7 @@ DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 //////////////////////////////////////////////////////////////////////////
 // AUE_DSWCharacter
 
-AUE_DSWCharacter::AUE_DSWCharacter()
+APlayerCharacter::APlayerCharacter()
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
@@ -39,7 +39,7 @@ AUE_DSWCharacter::AUE_DSWCharacter()
 
 //////////////////////////////////////////////////////////////////////////// Input
 
-void AUE_DSWCharacter::NotifyControllerChanged()
+void APlayerCharacter::NotifyControllerChanged()
 {
 	Super::NotifyControllerChanged();
 
@@ -53,7 +53,7 @@ void AUE_DSWCharacter::NotifyControllerChanged()
 	}
 }
 
-void AUE_DSWCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {	
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
@@ -63,10 +63,10 @@ void AUE_DSWCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
 		// Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AUE_DSWCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Move);
 
 		// Looking
-		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AUE_DSWCharacter::Look);
+		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Look);
 	}
 	else
 	{
@@ -75,7 +75,7 @@ void AUE_DSWCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 }
 
 
-void AUE_DSWCharacter::Move(const FInputActionValue& Value)
+void APlayerCharacter::Move(const FInputActionValue& Value)
 {
 	// input is a Vector2D
 	FVector2D MovementVector = Value.Get<FVector2D>();
@@ -88,7 +88,7 @@ void AUE_DSWCharacter::Move(const FInputActionValue& Value)
 	}
 }
 
-void AUE_DSWCharacter::Look(const FInputActionValue& Value)
+void APlayerCharacter::Look(const FInputActionValue& Value)
 {
 	// input is a Vector2D
 	FVector2D LookAxisVector = Value.Get<FVector2D>();
