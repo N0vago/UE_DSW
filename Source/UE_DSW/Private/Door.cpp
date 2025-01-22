@@ -14,6 +14,8 @@ void ADoor::StartCubeColorizeSequence()
 {
 	CurrentIlluminationIndex = 0;
 
+	CubeIndex = 0;
+
 	ColorHandlerMap.Empty();
 	
 	// Запускаем таймер для изменения цвета кубов
@@ -40,7 +42,7 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::ChangeCubeColor()
 {
-	ColorHandlers[CubeIndex]->SetBaseColor()();
+	ColorHandlers[CubeIndex]->SetBaseColor();
 	
 	if (CurrentIlluminationIndex >= IlluminationCount)
 	{

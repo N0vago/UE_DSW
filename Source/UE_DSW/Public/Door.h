@@ -44,9 +44,9 @@ private:
 	UPROPERTY()
 	TArray<UColorHandler*> ColorHandlers;
 	
-	int CurrentIlluminationIndex = 0;
+	int CurrentIlluminationIndex;
 
-	int CubeIndex = 0;
+	int CubeIndex;
 	
 	FTimerHandle TimerHandle;
 	
