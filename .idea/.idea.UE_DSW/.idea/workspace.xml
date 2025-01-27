@@ -12,11 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="237440ec-bc94-4717-b999-93b8b89ad94a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/GameContent/Blueprints/BP_Door4X3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/GameContent/Blueprints/BP_Door4X4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UE_DSW/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/GameContent/Blueprints/BP_Button.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameContent/Blueprints/BP_Button.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameContent/Blueprints/BP_Finish.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameContent/Blueprints/BP_Finish.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameContent/Blueprints/DT_ColorData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameContent/Blueprints/DT_ColorData.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -517,7 +514,7 @@
       <workItem from="1737670474777" duration="1627000" />
       <workItem from="1737795793426" duration="5605000" />
       <workItem from="1737882208824" duration="36980000" />
-      <workItem from="1737938751372" duration="18283000" />
+      <workItem from="1737938751372" duration="20019000" />
     </task>
     <servers />
   </component>
