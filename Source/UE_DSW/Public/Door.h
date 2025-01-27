@@ -7,6 +7,8 @@
 #include "GameFramework/Actor.h"
 #include "Door.generated.h"
 
+class ACubeActor;
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSequenceEnd);
 UCLASS()
 class UE_DSW_API ADoor : public AActor
 {
@@ -26,8 +28,18 @@ public:
 	/** Available colors for cubes */
 	UPROPERTY(EditInstanceOnly, Category = "Color", meta = (ToolTip = "Available colors for cubes"))
 	TArray<FLinearColor> AvailableColors;
-	
+
+	UPROPERTY()
+	TArray<ACubeActor*> HitedCubes;
+
+	UPROPERTY(BlueprintCallable, BlueprintAssignable)
+	FOnSequenceEnd OnSequenceEnd;
+
+	UFUNCTION(BlueprintCallable)
 	void StartCubeColorizeSequence();
+
+	UFUNCTION(BlueprintCallable)
+	bool CheckAttempt();
 
 protected:
 	// Called when the game starts or when spawned
@@ -38,17 +50,23 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	UPROPERTY()
-	TMap<int, UColorHandler*> ColorHandlerMap;
+	UFUNCTION()
+	void PopulateCubeSet(ACubeActor* Cube);
 
+	
 	UPROPERTY()
-	TArray<UColorHandler*> ColorHandlers;
+	TArray<ACubeActor*> IgnitedCubes;
+	
+	UPROPERTY()
+	TArray<ACubeActor*> Cubes;
+	
+	bool AreColorsEqual(const TArray<FLinearColor>& A, const TArray<FLinearColor>& B, float Tolerance);
 	
 	int CurrentIlluminationIndex;
 
 	int CubeIndex;
-	
+
 	FTimerHandle TimerHandle;
-	
+
 	void ChangeCubeColor();
 };

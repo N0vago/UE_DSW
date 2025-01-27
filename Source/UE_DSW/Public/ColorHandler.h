@@ -6,8 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "ColorHandler.generated.h"
 
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+
 class UE_DSW_API UColorHandler : public UActorComponent
 {
 	GENERATED_BODY()
@@ -18,12 +18,15 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Color")
 	FLinearColor BaseColor;
+	UPROPERTY()
+	TArray<FLinearColor> HiddenColors;
+	UPROPERTY()
+	TArray<FLinearColor> HitedColors;
 	
 	void SetColor(const FLinearColor& Color);
 
 	void SetBaseColor();
-
-	FLinearColor GetHiddenColor() const { return HiddenColor; }
+	
 
 protected:
 	// Called when the game starts
@@ -40,6 +43,4 @@ private:
 	UPROPERTY()
 	UStaticMeshComponent* MeshComponent;
 
-	UPROPERTY()
-	FLinearColor HiddenColor;
 };

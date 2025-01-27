@@ -1,6 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PlayerCharacter.h"
+#include "Blueprint/UserWidget.h"
+#include "GameFramework/PlayerController.h"
+#include "Engine/World.h"
+#include "ColorSelector.h"
 #include "Projectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
@@ -9,6 +13,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -42,9 +47,9 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::NotifyControllerChanged()
 {
 	Super::NotifyControllerChanged();
-
+	APlayerController* PlayerController = Cast<APlayerController>(Controller);
 	// Add Input Mapping Context
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	if (PlayerController)
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
@@ -67,12 +72,16 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Look);
+
+		EnhancedInputComponent->BindAction(NavigateUIAction, ETriggerEvent::Triggered, this, &APlayerCharacter::NavigateUI);
+		
 	}
 	else
 	{
 		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
 }
+
 
 
 void APlayerCharacter::Move(const FInputActionValue& Value)
@@ -82,7 +91,6 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 
 	if (Controller != nullptr)
 	{
-		// add movement 
 		AddMovementInput(GetActorForwardVector(), MovementVector.Y);
 		AddMovementInput(GetActorRightVector(), MovementVector.X);
 	}
@@ -90,13 +98,32 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 
 void APlayerCharacter::Look(const FInputActionValue& Value)
 {
-	// input is a Vector2D
 	FVector2D LookAxisVector = Value.Get<FVector2D>();
 
 	if (Controller != nullptr)
 	{
-		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+void APlayerCharacter::NavigateUI(const FInputActionValue& Value)
+{
+	float CurrentTime = GetWorld()->GetTimeSeconds();
+	
+	if (CurrentTime - LastInputTime < InputCooldown)
+	{
+		return;
+	}
+
+	LastInputTime = CurrentTime;
+	
+	float Direction = Value.Get<float>();
+	UE_LOG(LogTemp, Log, TEXT("🔵 UI Move: %f"), Direction);
+
+	if(ColorSelector)
+	{
+		ColorSelector->NavigateUI(Direction);
+	}
+}
+

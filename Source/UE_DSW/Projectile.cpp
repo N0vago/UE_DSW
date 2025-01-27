@@ -1,8 +1,31 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Projectile.h"
+
+#include "ColorSelector.h"
+#include "PlayerCharacter.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+
+FLinearColor AProjectile::GetProjectileColor() const
+{
+	UStaticMeshComponent* Mesh = FindComponentByClass<UStaticMeshComponent>();
+	FLinearColor Color;
+	if (Mesh)
+	{
+		// Получаем параметр BaseColor из материала
+		if (Mesh->GetMaterial(0))  // 0 - это индекс первого материала
+		{
+			Mesh->GetMaterial(0)->GetVectorParameterValue(FName("BaseColor"), Color);
+			UE_LOG(LogTemp, Log, TEXT("Projectile color: %s"), *Color.ToString());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Material not found or no color parameter"));
+		}
+	}
+	return Color;
+}
 
 AProjectile::AProjectile() 
 {
@@ -41,3 +64,4 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 		Destroy();
 	}
 }
+

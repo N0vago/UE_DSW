@@ -30,9 +30,8 @@ void UColorHandler::SetColor(const FLinearColor& Color)
 		
 		DynMaterial->SetVectorParameterValue("BaseColor", Color);
 
-		HiddenColor = Color;
+		HiddenColors.Add(Color);
 	}
-
 }
 
 void UColorHandler::SetBaseColor()

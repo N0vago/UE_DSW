@@ -13,6 +13,11 @@ class AMainGameMode : public AGameModeBase
 
 public:
 	AMainGameMode();
+
+	UPROPERTY()
+	TArray<FLinearColor> AvailableColors;
+protected:
+	virtual void BeginPlay() override;
 };
 
 
